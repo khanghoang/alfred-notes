@@ -1,0 +1,42 @@
+{
+  "name": "alfred-note-alfred",
+  "version": "0.0.0",
+  "description": "Search Notes",
+  "license": "MIT",
+  "repository": "khanghoang/alfred-note-alfred",
+  "author": {
+    "name": "Hoang Trieu, Khang",
+    "email": "khoangtrieu@paypal.com",
+    "url": "localhost"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup",
+    "global-link": "npm uninstall -g . && npm install -g ."
+  },
+  "files": [
+    "index.js",
+    "icon.png",
+    "info.plist"
+  ],
+  "keywords": [
+    "alfred",
+    "workflow",
+    "alfy"
+  ],
+  "dependencies": {
+    "alfy": "^0.6.0",
+    "lodash": "^4.17.4",
+    "open-in-editor": "^2.2.0",
+    "string-score": "^1.0.1"
+  },
+  "devDependencies": {
+    "alfy-test": "^0.3.0",
+    "ava": "^0.18.0",
+    "xo": "^0.17.0"
+  }
+}

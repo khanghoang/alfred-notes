@@ -1,0 +1,8 @@
+{
+  "generator-alfred": {
+    "promptValues": {
+      "githubUsername": "khanghoang",
+      "website": "http://localhost"
+    }
+  }
+}
