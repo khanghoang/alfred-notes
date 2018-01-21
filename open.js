@@ -6,3 +6,6 @@ const editor = openInEditor.configure({
 });
 
 editor.open(alfy.input);
+alfy.output([{
+    title: 'Opening...'
+}]);
