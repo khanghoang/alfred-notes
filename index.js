@@ -1,22 +1,27 @@
 'use strict';
 const alfy = require('alfy');
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 const score = require('string-score');
 const { sortBy, map, filter, reverse } = require('lodash/fp');
 const path = require('path');
 
-const searchPath = '~/Notes';
-const searchExec = `find ${searchPath}`;
+const searchPath = '/Users/khoangtrieu/Notes';
+const searchExec = spawn(`find`, ['/Users/khoangtrieu/Notes']);
 
-const needle = alfy.input;
+const needle = alfy.input || '';
 
 new Promise(resolve => {
-    exec(searchExec, (err, data) => {
-        return resolve(data);
+    let results;
+    searchExec.stdout.on('data', data => {
+        results = data.toString();
+    });
+    searchExec.on('close', () => {
+        return resolve(results);
     });
 })
     .then(data => {
-        return data.split('\n');
+        const newData = data.split('\n');
+        return newData;
     })
     .then(map(fullPath => ({
         name: path.basename(fullPath),
